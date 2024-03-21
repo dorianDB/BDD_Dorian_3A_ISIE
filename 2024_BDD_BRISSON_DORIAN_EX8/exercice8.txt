@@ -1,0 +1,13 @@
+#Ajout de la table Disponibilite
+CREATE TABLE Disponibilite (
+    ID_Disponibilite INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    ID_Materiel INT,
+    DateDebut DATE,
+    DateFin DATE,
+    FOREIGN KEY (ID_Materiel) REFERENCES Materiel(ID_Materiel)
+);
+
+#Ajout de la colonne ID_Disponibilite dans la table Reservation
+ALTER TABLE Reservation
+ADD COLUMN ID_Disponibilite INT,
+ADD FOREIGN KEY (ID_Disponibilite) REFERENCES Disponibilite(ID_Disponibilite);
